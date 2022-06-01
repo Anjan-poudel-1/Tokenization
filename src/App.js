@@ -64,7 +64,7 @@ class App extends Component {
       this.tokenInstance.events.Transfer({to:this.accounts[0]}).on("data",this.updateToken);
   }
   handleBuyToken = async()=>{
-      await this.tokenSalesInstance.methods.buyTokens(this.accounts[0]).send({from:this.accounts[0],value:this.web3.utils.toWei("1000000","wei")});
+      await this.tokenSalesInstance.methods.buyTokens(this.accounts[0]).send({from:this.accounts[0],value:this.web3.utils.toWei("10000000000000","wei")});
 
   }
  
@@ -90,10 +90,10 @@ class App extends Component {
             If you want to buy tokens.. send wei to this address <b>{this.state.tokenSaleAddress}</b>
           </p>
           <p>
-            You have {this.state.no_of_tokens} MANDALA tokens.
+            You have {(this.state.no_of_tokens)/(10**18)} MANDALA tokens.
           </p>
           <button type="button" onClick={this.handleBuyToken}>
-              Buy more token
+              Buy 10 more tokens
           </button>
         
       </div>
